@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>My CV | Physiology Graduate</title>
+<title>My CV | Physiotherapist</title>
 <link rel="icon" href="profile.jpg" />
 <style>
-/* ===== Global Reset ===== */
+/* ===== Reset & Variables ===== */
 * {
   margin: 0;
   padding: 0;
@@ -49,34 +49,49 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0.8rem 1rem;
+  flex-wrap: wrap;
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
 .profile-img {
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--primary);
 }
 
+.logo h1 {
+  font-size: 1.1rem;
+}
+
+.logo p {
+  font-size: 0.9rem;
+  color: gray;
+}
+
 .nav-links {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
-  gap: 1rem;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 0.5rem;
 }
 
 .nav-links li a {
   font-weight: 500;
   color: var(--secondary);
-  padding: 0.5rem;
+  padding: 0.4rem 0.7rem;
   border-radius: 5px;
   transition: var(--transition);
+  font-size: 0.9rem;
 }
 
 .nav-links li a:hover {
@@ -86,16 +101,17 @@ header {
 
 /* ===== Sections ===== */
 .section {
-  padding: 5rem 1rem;
+  padding: 3rem 1rem;
   max-width: var(--max-width);
   margin: auto;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--primary);
   margin-bottom: 1rem;
   position: relative;
+  text-align: center;
 }
 
 h2::after {
@@ -104,7 +120,7 @@ h2::after {
   width: 60px;
   height: 3px;
   background: var(--primary);
-  margin-top: 0.5rem;
+  margin: 0.5rem auto 0;
 }
 
 /* ===== Hero ===== */
@@ -112,30 +128,32 @@ h2::after {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  gap: 2rem;
   text-align: center;
+  gap: 1.5rem;
 }
 
 .hero-text h2 {
-  font-size: 2.4rem;
-  color: var(--secondary);
+  font-size: 1.8rem;
 }
 
 .hero-text p {
   color: #555;
+  font-size: 1rem;
+  padding: 0 1rem;
 }
 
 .hero-img img {
-  width: 230px;
+  width: 180px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
 .hero-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   justify-content: center;
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
 }
 
 .btn,
@@ -153,7 +171,7 @@ h2::after {
 }
 
 .btn:hover {
-  opacity: 0.85;
+  opacity: 0.9;
   transform: translateY(-2px);
 }
 
@@ -168,7 +186,7 @@ h2::after {
   color: var(--white);
 }
 
-/* ===== Card / Content Blocks ===== */
+/* ===== Card ===== */
 .card {
   background: var(--white);
   padding: 1.5rem;
@@ -187,7 +205,7 @@ h2::after {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  margin-bottom: 1.5rem;
+  justify-content: center;
 }
 
 .skills-list span {
@@ -208,23 +226,25 @@ h2::after {
 .contact-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .contact-info,
 .contact-form {
   background: var(--white);
-  padding: 1.5rem;
+  padding: 1.2rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
 .contact-info p {
   margin-bottom: 0.5rem;
+  font-size: 0.95rem;
 }
 
 .contact-info a {
   color: var(--primary);
+  word-break: break-word;
 }
 
 .contact-form input,
@@ -235,6 +255,7 @@ h2::after {
   border: 1px solid #ccc;
   font-size: 1rem;
   transition: border 0.2s;
+  margin-bottom: 0.8rem;
 }
 
 .contact-form input:focus,
@@ -271,18 +292,31 @@ footer {
 
 /* ===== Responsive ===== */
 @media (min-width: 768px) {
-  .hero {
-    flex-direction: row;
-    text-align: left;
-    justify-content: space-between;
+  .navbar {
+    flex-wrap: nowrap;
   }
 
-  .hero-buttons {
-    justify-content: flex-start;
+  .hero {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .hero-text {
+    flex: 1;
+  }
+
+  .hero-text h2 {
+    font-size: 2.2rem;
+  }
+
+  .hero-img img {
+    width: 260px;
   }
 
   .contact-container {
     flex-direction: row;
+    align-items: flex-start;
   }
 
   .contact-info,
@@ -291,13 +325,26 @@ footer {
   }
 }
 
-/* ===== Animations ===== */
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 2.2rem;
+  }
+
+  body {
+    font-size: 17px;
+  }
+
+  .section {
+    padding: 4rem 2rem;
+  }
+}
+
+/* ===== Fade-in Animation ===== */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease, transform 1s ease;
 }
-
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
@@ -313,7 +360,7 @@ footer {
       <img src="profile.png" alt="Profile" class="profile-img" />
       <div>
         <h1 id="name">Fatima Mahmoud Baalbaki</h1>
-        <p id="title">Physiotherapy Graduate</p>
+        <p id="title">Physiotherapist</p>
       </div>
     </div>
     <ul class="nav-links">
@@ -327,16 +374,16 @@ footer {
   </nav>
 </header>
 
+<!-- ===== Main Content ===== -->
 <main>
-  <!-- Home Section -->
   <section id="home" class="section hero fade-in">
-    <br><br>
     <div class="hero-text">
       <h2 id="name-hero">Fatima Mahmoud Baalbaki</h2>
-      <p id="title-hero">Physiotherapy Graduate</p>
+      <p id="title-hero">Physiotherapist</p>
       <p id="about">
-        Passionate physiotherapy graduate with hands-on laboratory experience, data analysis skills, and a
-        drive for medical research. Eager to apply scientific knowledge in healthcare or biomedical fields.
+        Passionate physiotherapist with hands-on rehabilitation experience, patient care skills,
+        and a deep understanding of anatomy and movement science. Eager to apply evidence-based
+        methods to improve patient outcomes and well-being.
       </p>
       <div class="hero-buttons">
         <a href="#contact" class="btn">Contact Me</a>
@@ -348,20 +395,16 @@ footer {
     </div>
   </section>
 
-  <!-- About -->
   <section id="about" class="section fade-in">
-    <br><br>
     <h2>About</h2>
-    <p>
-      I am a dedicated and curious Physiotherapy graduate with a strong foundation in experimental design,
-      biological systems, and data interpretation. My background combines academic excellence with a
-      collaborative approach to scientific discovery.
+    <p style="text-align:center;max-width:800px;margin:auto;">
+      I am a dedicated and empathetic physiotherapist graduate passionate about restoring movement,
+      reducing pain, and enhancing patient mobility. I value teamwork, continuous learning, and
+      holistic care that promotes long-term wellness.
     </p>
   </section>
 
-  <!-- Education -->
   <section id="education" class="section fade-in">
-    <br><br>
     <h2>Education</h2>
     <div class="card">
       <h3>B.Sc. in Physiotherapy</h3>
@@ -370,50 +413,45 @@ footer {
     </div>
   </section>
 
-  <!-- Skills -->
   <section id="skills" class="section fade-in">
-    <br><br>
     <h2>Skills</h2>
     <div class="skills-list">
-      <span>Laboratory Techniques</span>
+      <span>Patient Assessment</span>
+      <span>Manual Therapy</span>
+      <span>Rehabilitation Exercises</span>
       <span>Data Analysis (Excel, SPSS)</span>
-      <span>Research Methods</span>
-      <span>Scientific Writing</span>
       <span>Team Collaboration</span>
-      <span>Critical Thinking</span>
+      <span>Scientific Writing</span>
     </div>
 
-    <h3>Languages</h3>
+    <h3 style="text-align:center;margin-top:1.5rem;">Languages</h3>
     <div class="skills-list">
       <span>Arabic — Native</span>
       <span>English — Advanced</span>
     </div>
   </section>
 
-  <!-- Experience -->
   <section id="experience" class="section fade-in">
-    <br><br>
     <h2>Experience</h2>
     <div class="card">
-      <h3>Intern — Physiotherapy Laboratory</h3>
-      <p>University Research Center</p>
+      <h3>Intern — Physiotherapy Center</h3>
+      <p>University Medical Department</p>
       <small>2024 - 2025</small>
       <p>
-        Assisted in conducting Physiotherapy experiments, managing biological data, and maintaining lab
-        safety protocols. Participated in writing experiment summaries and analyzing results using data tools.
+        Assisted in patient rehabilitation programs, designed customized exercise routines,
+        and helped monitor recovery progress. Focused on improving patient mobility and posture
+        through evidence-based techniques.
       </p>
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact" class="section fade-in">
-    <br><br>
     <h2>Contact</h2>
     <div class="contact-container">
       <div class="contact-info">
         <p><strong>Email:</strong> <a href="mailto:you@example.com">you@example.com</a></p>
         <p><strong>Phone:</strong> +961 7 000 000</p>
-        <p><a href="https://WhatsApp/in/your-profile" target="_blank">WhatsApp</a></p>
+        <p><a href="https://wa.me/9617000000" target="_blank">WhatsApp</a></p>
         <p><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></p>
       </div>
 
@@ -428,22 +466,17 @@ footer {
 </main>
 
 <footer>
-  <p>© 2025 physiotherapist Fatima Baalbaki </p>
+  <p>© 2025 Physiotherapist Fatima Baalbaki</p>
 </footer>
 
 <script>
-// Simple fade-in animation
+// Fade-in on scroll
 const faders = document.querySelectorAll(".fade-in");
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  },
-  { threshold: 0.2 }
-);
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("visible");
+  });
+}, { threshold: 0.2 });
 faders.forEach(f => observer.observe(f));
 
 function sendMessage(e) {
@@ -453,4 +486,3 @@ function sendMessage(e) {
 </script>
 </body>
 </html>
-
