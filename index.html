@@ -3,86 +3,53 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>Mobile CV | Physiotherapist</title>
+<title>My CV | Physiotherapist</title>
 <link rel="icon" href="profile.jpg" />
 <style>
-/* ===== Reset & Theme ===== */
-* { margin:0; padding:0; box-sizing:border-box; }
+/* ===== Mobile CV Style ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   background: #f5f8fb;
   color: #222;
   line-height: 1.6;
-  overflow-x: hidden;
   scroll-behavior: smooth;
+  padding-bottom: 60px;
 }
 
 /* ===== Header ===== */
 header {
   background: #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 1rem;
+  text-align: center;
+  padding: 1rem 0.5rem;
   position: sticky;
   top: 0;
   z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+}
+
+header img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #0066cc;
+  object-fit: cover;
 }
 
 header h1 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  margin-top: 0.6rem;
   color: #0066cc;
 }
+
 header p {
-  font-size: 0.9rem;
   color: #444;
-}
-
-/* ===== Hamburger Menu ===== */
-.menu-btn {
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #0066cc;
-}
-
-/* ===== Side Nav ===== */
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 200;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  overflow-x: hidden;
-  transition: 0.3s;
-  box-shadow: 2px 0 6px rgba(0,0,0,0.2);
-  padding-top: 3rem;
-}
-
-.sidenav a {
-  display: block;
-  padding: 1rem 1.5rem;
-  text-decoration: none;
-  font-size: 1rem;
-  color: #0066cc;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  background: #0066cc;
-  color: #fff;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0.8rem;
-  right: 1rem;
-  font-size: 1.5rem;
-  cursor: pointer;
+  font-size: 0.95rem;
 }
 
 /* ===== Section General ===== */
@@ -101,7 +68,14 @@ header p {
   text-align: center;
 }
 
-/* ===== Cards ===== */
+/* ===== About ===== */
+#about p {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* ===== Card Style (Education, Experience) ===== */
 .card {
   background: #f9fbff;
   border-radius: 10px;
@@ -131,22 +105,11 @@ header p {
   font-size: 0.85rem;
 }
 
-/* ===== Contact ===== */
-.contact-info p {
-  font-size: 0.9rem;
-  margin-bottom: 0.6rem;
-  text-align: center;
-}
-
-.contact-info a {
-  color: #0066cc;
-  word-break: break-word;
-}
-
+/* ===== Buttons ===== */
 .btn {
-  display: block;
-  width: 100%;
+  display: inline-block;
   text-align: center;
+  width: 100%;
   background: #0066cc;
   color: #fff;
   padding: 0.8rem;
@@ -158,43 +121,57 @@ header p {
   transition: 0.3s;
 }
 
-.btn:hover { opacity: 0.9; }
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* ===== Contact Section ===== */
+.contact-info p {
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+  text-align: center;
+}
+
+.contact-info a {
+  color: #0066cc;
+  word-break: break-word;
+}
 
 /* ===== Footer ===== */
-footer { text-align:center; font-size:0.8rem; color:#666; margin-top:2rem; }
+footer {
+  text-align: center;
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 2rem;
+}
 
-/* ===== Fade-in animation ===== */
-.fade-in { opacity: 0; transform: translateY(10px); transition: all 1s ease; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
+/* ===== Animation ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 1s ease;
+}
 
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div>
-    <h1>Fatima Baalbaki</h1>
-    <p>Physiotherapist</p>
-  </div>
-  <button class="menu-btn" onclick="openNav()">☰</button>
+  <img src="profile.png" alt="Profile">
+  <h1>Fatima Mahmoud Baalbaki</h1>
+  <p>Physiotherapist</p>
 </header>
-
-<!-- Side navigation -->
-<div id="mySidenav" class="sidenav">
-  <span class="closebtn" onclick="closeNav()">×</span>
-  <a href="#about" onclick="closeNav()">About</a>
-  <a href="#education" onclick="closeNav()">Education</a>
-  <a href="#skills" onclick="closeNav()">Skills</a>
-  <a href="#experience" onclick="closeNav()">Experience</a>
-  <a href="#contact" onclick="closeNav()">Contact</a>
-</div>
 
 <main>
   <section id="about" class="section fade-in">
     <h2>About</h2>
-    <p style="text-align:center;">
-      Passionate physiotherapist with rehabilitation experience, patient care skills,
-      and deep knowledge of anatomy and movement science.
+    <p>
+      Passionate physiotherapist with a strong foundation in rehabilitation, movement science, 
+      and patient-centered care. Eager to help individuals restore mobility and improve quality of life.
     </p>
   </section>
 
@@ -214,6 +191,7 @@ footer { text-align:center; font-size:0.8rem; color:#666; margin-top:2rem; }
       <span>Manual Therapy</span>
       <span>Rehabilitation Exercises</span>
       <span>Teamwork</span>
+      <span>Communication</span>
       <span>Scientific Writing</span>
     </div>
   </section>
@@ -224,7 +202,8 @@ footer { text-align:center; font-size:0.8rem; color:#666; margin-top:2rem; }
       <h3>Intern — Physiotherapy Center</h3>
       <p>University Hospital, 2024–2025</p>
       <p>
-        Assisted patients with exercise programs, monitored recovery, and documented progress.
+        Assisted patients with tailored exercise programs, monitored recovery progress, 
+        and maintained documentation with attention to patient well-being and professionalism.
       </p>
     </div>
   </section>
@@ -246,14 +225,12 @@ footer { text-align:center; font-size:0.8rem; color:#666; margin-top:2rem; }
 </footer>
 
 <script>
-// Side navigation
-function openNav() { document.getElementById("mySidenav").style.width = "250px"; }
-function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
-
-// Fade-in animation
+// Fade-in animation for mobile scroll
 const sections = document.querySelectorAll('.fade-in');
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
 }, { threshold: 0.2 });
 sections.forEach(s => observer.observe(s));
 </script>
