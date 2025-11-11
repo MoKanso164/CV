@@ -2,154 +2,300 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>My CV | Physiotherapist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My CV | Physiology Graduate</title>
 <link rel="icon" href="profile.jpg" />
 <style>
-/* ===== Mobile CV Style ===== */
+/* ===== Global Reset ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --primary: #0066cc;
+  --secondary: #333;
+  --light-bg: #f9fafc;
+  --white: #fff;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+  --transition: 0.3s ease;
+  --max-width: 1100px;
+  font-size: 16px;
+}
+
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background: #f5f8fb;
-  color: #222;
-  line-height: 1.6;
+  background: var(--light-bg);
+  color: var(--secondary);
+  line-height: 1.7;
   scroll-behavior: smooth;
-  padding-bottom: 60px;
 }
 
-/* ===== Header ===== */
+/* ===== Navbar ===== */
 header {
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
-  padding: 1rem 0.5rem;
   position: sticky;
   top: 0;
+  background: var(--white);
   z-index: 100;
+  box-shadow: var(--shadow);
 }
 
-header img {
-  width: 90px;
-  height: 90px;
+.navbar {
+  max-width: var(--max-width);
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.profile-img {
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
-  border: 3px solid #0066cc;
   object-fit: cover;
+  border: 2px solid var(--primary);
 }
 
-header h1 {
-  font-size: 1.3rem;
-  margin-top: 0.6rem;
-  color: #0066cc;
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
 }
 
-header p {
-  color: #444;
-  font-size: 0.95rem;
+.nav-links li a {
+  font-weight: 500;
+  color: var(--secondary);
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: var(--transition);
 }
 
-/* ===== Section General ===== */
+.nav-links li a:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* ===== Sections ===== */
 .section {
-  padding: 1.5rem;
-  background: #fff;
-  margin: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 5rem 1rem;
+  max-width: var(--max-width);
+  margin: auto;
 }
 
-.section h2 {
-  font-size: 1.2rem;
-  color: #0066cc;
-  margin-bottom: 0.8rem;
+h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--primary);
+  margin-top: 0.5rem;
+}
+
+/* ===== Hero ===== */
+.hero {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 2rem;
   text-align: center;
 }
 
-/* ===== About ===== */
-#about p {
-  text-align: center;
-  font-size: 0.95rem;
-  color: #333;
+.hero-text h2 {
+  font-size: 2.4rem;
+  color: var(--secondary);
 }
 
-/* ===== Card Style (Education, Experience) ===== */
+.hero-text p {
+  color: #555;
+}
+
+.hero-img img {
+  width: 230px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.btn,
+.btn-outline {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* ===== Card / Content Blocks ===== */
 .card {
-  background: #f9fbff;
-  border-radius: 10px;
-  padding: 1rem;
-  margin-top: 0.8rem;
-  font-size: 0.95rem;
+  background: var(--white);
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
 }
 
-.card h3 {
-  color: #0066cc;
-  font-size: 1.05rem;
+.card:hover {
+  transform: translateY(-3px);
 }
 
 /* ===== Skills ===== */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.4rem;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
 }
 
 .skills-list span {
-  background: #e6f1ff;
-  color: #0066cc;
+  background: #e6f2ff;
+  color: var(--primary);
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
-  font-size: 0.85rem;
-}
-
-/* ===== Buttons ===== */
-.btn {
-  display: inline-block;
-  text-align: center;
-  width: 100%;
-  background: #0066cc;
-  color: #fff;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  margin-top: 1rem;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  opacity: 0.9;
-}
-
-/* ===== Contact Section ===== */
-.contact-info p {
   font-size: 0.9rem;
-  margin-bottom: 0.6rem;
-  text-align: center;
+  transition: var(--transition);
+}
+
+.skills-list span:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* ===== Contact ===== */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-info,
+.contact-form {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.contact-info p {
+  margin-bottom: 0.5rem;
 }
 
 .contact-info a {
-  color: #0066cc;
-  word-break: break-word;
+  color: var(--primary);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.contact-form button {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 0.7rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.contact-form button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
 /* ===== Footer ===== */
 footer {
   text-align: center;
+  padding: 1.5rem;
   color: #666;
-  font-size: 0.8rem;
-  margin-top: 2rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #eee;
+  margin-top: 3rem;
 }
 
-/* ===== Animation ===== */
+/* ===== Responsive ===== */
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+  }
+
+  .hero-buttons {
+    justify-content: flex-start;
+  }
+
+  .contact-container {
+    flex-direction: row;
+  }
+
+  .contact-info,
+  .contact-form {
+    flex: 1;
+  }
+}
+
+/* ===== Animations ===== */
 .fade-in {
   opacity: 0;
-  transform: translateY(10px);
-  transition: all 1s ease;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .fade-in.visible {
@@ -160,80 +306,144 @@ footer {
 </head>
 <body>
 
+<!-- Navbar -->
 <header>
-  <img src="profile.png" alt="Profile">
-  <h1>Fatima Mahmoud Baalbaki</h1>
-  <p>Physiotherapist</p>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="profile.png" alt="Profile" class="profile-img" />
+      <div>
+        <h1 id="name">Fatima Mahmoud Baalbaki</h1>
+        <p id="title">Physiotherapy Graduate</p>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main>
+  <!-- Home Section -->
+  <section id="home" class="section hero fade-in">
+    <div class="hero-text">
+      <h2 id="name-hero">Fatima Mahmoud Baalbaki</h2>
+      <p id="title-hero">Physiotherapy Graduate</p>
+      <p id="about">
+        Passionate physiotherapy graduate with hands-on laboratory experience, data analysis skills, and a
+        drive for medical research. Eager to apply scientific knowledge in healthcare or biomedical fields.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">Contact Me</a>
+        <a href="#education" class="btn-outline">My Education</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="profile.png" alt="Profile Image" />
+    </div>
+  </section>
+
+  <!-- About -->
   <section id="about" class="section fade-in">
     <h2>About</h2>
     <p>
-      Passionate physiotherapist with a strong foundation in rehabilitation, movement science, 
-      and patient-centered care. Eager to help individuals restore mobility and improve quality of life.
+      I am a dedicated and curious Physiotherapy graduate with a strong foundation in experimental design,
+      biological systems, and data interpretation. My background combines academic excellence with a
+      collaborative approach to scientific discovery.
     </p>
   </section>
 
+  <!-- Education -->
   <section id="education" class="section fade-in">
     <h2>Education</h2>
     <div class="card">
       <h3>B.Sc. in Physiotherapy</h3>
-      <p>Islamic University of Lebanon</p>
+      <p>Islamic University Of Lebanon</p>
       <small>Graduated: 2025</small>
     </div>
   </section>
 
+  <!-- Skills -->
   <section id="skills" class="section fade-in">
     <h2>Skills</h2>
     <div class="skills-list">
-      <span>Patient Assessment</span>
-      <span>Manual Therapy</span>
-      <span>Rehabilitation Exercises</span>
-      <span>Teamwork</span>
-      <span>Communication</span>
+      <span>Laboratory Techniques</span>
+      <span>Data Analysis (Excel, SPSS)</span>
+      <span>Research Methods</span>
       <span>Scientific Writing</span>
+      <span>Team Collaboration</span>
+      <span>Critical Thinking</span>
+    </div>
+
+    <h3>Languages</h3>
+    <div class="skills-list">
+      <span>Arabic — Native</span>
+      <span>English — Advanced</span>
     </div>
   </section>
 
+  <!-- Experience -->
   <section id="experience" class="section fade-in">
     <h2>Experience</h2>
     <div class="card">
-      <h3>Intern — Physiotherapy Center</h3>
-      <p>University Hospital, 2024–2025</p>
+      <h3>Intern — Physiotherapy Laboratory</h3>
+      <p>University Research Center</p>
+      <small>2024 - 2025</small>
       <p>
-        Assisted patients with tailored exercise programs, monitored recovery progress, 
-        and maintained documentation with attention to patient well-being and professionalism.
+        Assisted in conducting Physiotherapy experiments, managing biological data, and maintaining lab
+        safety protocols. Participated in writing experiment summaries and analyzing results using data tools.
       </p>
     </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact" class="section fade-in">
     <h2>Contact</h2>
-    <div class="contact-info">
-      <p><strong>Email:</strong> <a href="mailto:you@example.com">you@example.com</a></p>
-      <p><strong>Phone:</strong> +961 7 000 000</p>
-      <p><a href="https://wa.me/9617000000" target="_blank">WhatsApp</a></p>
-      <p><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></p>
+    <div class="contact-container">
+      <div class="contact-info">
+        <p><strong>Email:</strong> <a href="mailto:you@example.com">you@example.com</a></p>
+        <p><strong>Phone:</strong> +961 7 000 000</p>
+        <p><a href="https://WhatsApp/in/your-profile" target="_blank">WhatsApp</a></p>
+        <p><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></p>
+      </div>
+
+      <form class="contact-form" onsubmit="sendMessage(event)">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
-    <button class="btn" onclick="alert('Message Sent (Demo)')">Send Message</button>
   </section>
 </main>
 
 <footer>
-  <p>© 2025 Physiotherapist Fatima Baalbaki</p>
+  <p>© 2025 physiotherapist Fatima Baalbaki </p>
 </footer>
 
 <script>
-// Fade-in animation for mobile scroll
-const sections = document.querySelectorAll('.fade-in');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.2 });
-sections.forEach(s => observer.observe(s));
-</script>
+// Simple fade-in animation
+const faders = document.querySelectorAll(".fade-in");
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+faders.forEach(f => observer.observe(f));
 
+function sendMessage(e) {
+  e.preventDefault();
+  alert("Message sent successfully! (Demo only)");
+}
+</script>
 </body>
 </html>
